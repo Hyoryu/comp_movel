@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="silva.relacaotabelas">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".atividades.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".atividades.Cadastrar_LivroActivity" />
+        <activity android:name=".atividades.EscolherActivity" />
+        <activity android:name=".atividades.InnerJoinActivity" />
+        <activity android:name=".atividades.Cadastrar_UsuarioActivity" />
+        <activity android:name=".atividades.AlterarSenhaUsuarioActivity" />
+        <activity android:name=".atividades.AlterarLivro_Activity" />
+        <activity android:name=".atividades.AlterarDadosUsuario_Activity" />
+        <activity android:name=".atividades.AlterarSenhaUsuario_Actitivy" />
+        <activity android:name=".atividades.DeletarLivro_Activity" />
+        <activity android:name=".atividades.DeletarUsuario_Activity" />
+        <activity android:name=".atividades.ResetarSenha_Activity"></activity>
+    </application>
+
+</manifest>

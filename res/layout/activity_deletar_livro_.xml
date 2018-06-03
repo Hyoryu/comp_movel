@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:background="#ffffff">
+    <TableRow>
+        <TextView
+            android:id="@+id/textView10"
+            android:width="400dp"
+            android:textSize="20dp"
+            android:text="Deletar livro"/>
+
+    </TableRow>
+    <TableRow>
+        <EditText
+            android:id="@+id/txtDeletarLivro_Buscar"
+            android:layout_marginTop="10dp"
+            android:width="400dp"
+            android:inputType="text"
+            android:hint="Título do livro"/>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/btnDeletarLivro_Buscar"
+            android:text="Buscar livro"
+            android:onClick="deletarLivro_Buscar"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="40dp">
+
+        <EditText
+            android:id="@+id/txtDeletarLivro_Title"
+            android:width="400dp"
+            android:hint="Título"
+            android:visibility="invisible"
+            android:inputType="none" />
+    </TableRow>
+    <TableRow>
+
+        <EditText
+            android:id="@+id/txtDeletarLivro_Author"
+            android:hint="Autor"
+            android:visibility="invisible"
+            android:inputType="none" />
+    </TableRow>
+    <TableRow>
+
+        <EditText
+            android:id="@+id/txtDeletarLivro_Publisher"
+            android:inputType="none"
+            android:visibility="invisible"
+            android:hint="Editora"/>
+    </TableRow>
+    <TableRow>
+
+        <EditText
+            android:id="@+id/txtDeletarLivro_Year"
+            android:inputType="none"
+            android:visibility="invisible"
+            android:hint="Ano de publicação"/>
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:id="@+id/btnDeletarLivro_Deletar"
+            android:text="Deletar"
+            android:visibility="invisible"
+            android:onClick="deletarLivro_Deletar"/>
+    </TableRow>
+</TableLayout>

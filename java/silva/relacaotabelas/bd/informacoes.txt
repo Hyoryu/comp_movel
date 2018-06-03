@@ -1,0 +1,149 @@
+/*Classes DAO são responsáveis por gerenciar a tabela que nomeia a classe.
+É através dela que o CRUD será realizado.
+
+Abaixo tem alguns comandos em SQL para fazer Inserção, alteração, busca, relacionamento de tabelas
+e remoção
+ ---------------------------------------------------------------------------------------------------
+|                                		DataBase dunno                                             |
+|																								   |
+| -----------------------------------------------------------------------------------------------  |
+| |	                              		table User                                              |  |
+| -----------------------------------------------------------------------------------------------  |
+| |PK: UserID¹ 	 | UserName³ 	 | UserNickname³	 |    UserEmail³      	    | UserPassword³	|  |
+| -----------------------------------------------------------------------------------------------  |
+| |     1        | Felipe        |       Hyoryu      |silva_fellipe@outlook.com |    hashCode   |  |
+| -----------------------------------------------------------------------------------------------  |
+| |     2        | Dunno         |   Nunca nem vi    |nuncanemvi@qdiafoiesse.com|    hashCode   |  |
+| -----------------------------------------------------------------------------------------------  |
+|																								   |
+| -----------------------------------------------------------------------------------------------  |
+| |										table Books 											|  |
+| -----------------------------------------------------------------------------------------------  |
+| |PK:BookID¹| 		BookName³	   	   | BookAuthor³    | BookPublisher³ | BookYear|FK_UserNick²|  |
+| -----------------------------------------------------------------------------------------------  |
+| |		1	 |Morte: edição definitiva | Neil Gaiman    | 	Panini	     |	  2017 |	1		|  |
+| -----------------------------------------------------------------------------------------------  |
+| |		2	 |Morte: edição definitiva | Neil Gaiman    | 	Panini	     |	  2017 |	2		|  |
+| -----------------------------------------------------------------------------------------------  |
+| |		1	 |Zelda: Ocarina of Time PE| Akira Himekawa | 	Panini	     |	  2017 |	1		|  |
+| -----------------------------------------------------------------------------------------------  |
+|																								   |
+|																								   |
+----------------------------------------------------------------------------------------------------
+PK = Primary Key (Chave primaria), identificador de cada item inserido na tabela
+FK = Foreign Key (Chave estrangeira), faz o relacionamento entre os objetos inseridos nas tabelas
+¹ = int autoincrement
+²  = A coluna relacionada entre as tabelas Users e Books
+³  = value not null
+*/
+CREATE DATABASE Dunno;
+
+CREATE TABLE Users(
+	UserID integer primary key autoincrement,
+	UserName text NOT NULL,
+	UserNickname text NOT NULL,
+	UserEmail text NOT NULL,
+	UserPassword text NOT NULL
+	);
+
+CREATE TABLE Books(
+	BookID integer primary key autoincrement,
+    BookName text not null,
+    BookAuthor text not null,
+    BookPublisher text not null,
+    BookYear integer,
+    UserID integer not null,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    );
+/*Inserindo os 2 usuários*/
+INSERT INTO Users(UserName, UserNickname, UserEmail, UserPassword)
+VALUES ('Felipe', 'Hyoryu', 'silva_fellipe@outlook.com','dahdihadiuh');
+
+INSERT INTO Users(UserName, UserNickname, UserEmail, UserPassword)
+VALUES ('Luisa', 'Luba', 'luba.dunno@gmail.com.br','riaufjlskfjskl');
+
+/*inserindo 3 livros: 2 para o primeiro usuário e um para o segundo usuário*/
+INSERT INTO Books(BookName, BookAuthor, BookPublisher, BookYear, UserID)
+VALUES ('Morte: edição definitiva','Neil Gaiman', 'Panini', 2017, 1 );
+
+INSERT INTO Books(BookName, BookAuthor, BookPublisher, BookYear, UserID)
+VALUES ('Morte: edição definitiva','Neil Gaiman', 'Panini', 2017, 2 );
+
+INSERT INTO Books(BookName, BookAuthor, BookPublisher, BookYear, UserID)
+VALUES ('Zelda: Ocarina of Time PE','Akira Himekawa', 'Panini', 2017, 1 );
+/*buscar um livro especifíco*/
+SELECT Users.UserName AS Dono, Users.UserEmail AS Email, Books.BookName AS Título, Books.BookAuthor AS Autor, Books.BookPublisher AS Editora, Books.BookYear AS Ano_Publicação
+FROM Books
+INNER JOIN Users
+ON Users.UserID = Books.UserID AND Books.BookName = 'Morte: edição definitiva';
+
+/*							Resultado da busca via nome do livro
+--------------------------------------------------------------------------------------------------------------
+|  Dono   |           Email           | Título 					 | 		Autor  | Editora | Ano_Publicação	  |
+--------------------------------------------------------------------------------------------------------------
+|  Hyoryu | silva_fellipe@outlook.com | Morte: edição definitiva | Neil Gaiman | Panini  |  2017			  |
+--------------------------------------------------------------------------------------------------------------
+|  Luba   | luba.dunno@gmail.com.br   | Morte: edição definitiva | Neil Gaiman | Panini  |  2017			  |
+--------------------------------------------------------------------------------------------------------------
+*/
+
+/*buscar os livros de um usuário (enviar um usuario e comparar o ID do usuario com a chave
+estrangeira da tabela livros para fazer a buscar)
+Primeiro comparo se a UserID buscada existe. Se existir verifico se há uma tabela com
+os livros salvos desse usuário, se as duas comparações retornarem true, mostro a tabela. Senão
+retorno false porque não foi possível achar os valores
+OBS: userID é uma variável int que representa UserID*/
+SELECT Users.UserName AS Dono, Users.UserEmail AS Email, Books.BookName AS Título, Books.BookAuthor AS Autor, Books.BookPublisher AS Editora, Books.BookYear AS Ano_Publicação
+FROM Books
+INNER JOIN Users
+ON Users.UserID = 1 AND Users.UserID = Books.UserID;
+/*							Resultado da busca via ID
+--------------------------------------------------------------------------------------------------------------
+|  Dono   |           Email           | Título 					  | 		Autor  | Editora |  Ano_Publicação|
+--------------------------------------------------------------------------------------------------------------
+|  Hyoryu | silva_fellipe@outlook.com | Morte: edição definitiva  | Neil Gaiman    |Panini   |  2017 		  |
+--------------------------------------------------------------------------------------------------------------
+|  Hyoryu | silva_fellipe@outlook.com |Zelda: Ocarina of Time PE  | Akira Himekawa |Panini   |  2017		  |
+--------------------------------------------------------------------------------------------------------------
+
+
+Buscar todos os livros cadastrados
+*/
+SELECT Users.UserName AS Dono, Users.UserEmail AS Email, Books.BookName AS Título, Books.BookAuthor AS Autor, Books.BookPublisher AS Editora, Books.BookYear AS Ano_Publicação
+FROM Books
+INNER JOIN Users
+ON Users.UserID = Books.UserID;
+/*							Resultado da busca de todos os livros
+--------------------------------------------------------------------------------------------------------------
+|  Dono   |           Email           | Título 					  | 		Autor  | Editora |  Ano_Publicação|
+--------------------------------------------------------------------------------------------------------------
+|  Hyoryu | silva_fellipe@outlook.com | Morte: edição definitiva  | Neil Gaiman    | Panini  |  2017 		  |
+--------------------------------------------------------------------------------------------------------------
+|  Hyoryu | silva_fellipe@outlook.com |Zelda: Ocarina of Time PE  | Akira Himekawa | Panini  |  2017		  |
+--------------------------------------------------------------------------------------------------------------
+|  Luba   | luba.dunno@gmail.com.br   | Morte: edição definitiva  | Neil Gaiman    | Panini  |  2017		  |
+--------------------------------------------------------------------------------------------------------------
+
+/*Editando o valor de alguma coluna*/
+UPDATE Users
+SET UserNickname = 'Haru', UserPassword= 'novoHashCode()'
+Where UserName = 'Felipe' AND UserEmail = 'silva_fellipe@outlook.com';
+/* ou Where UserID = 1;
+-----------------------------------------------------------------------------------------------------
+|     1          | Felipe        |       Haru      |silva_fellipe@outlook.com |    novoHashCode      |
+-----------------------------------------------------------------------------------------------------
+
+Remover um usuário pelo ID
+Esse comando remove a linha inteira onde o ID = 3
+*/
+DELETE FROM Users
+WHERE UserID = 3;
+/*
+fazer uma busca de um usuário que não tem livros
+*/
+SELECT * FROM Users
+Where UserID NOT IN (SELECT UserID FROM Books);
+/*verificar se já existe um usuário com o mesmo apelido de um possível novo usuário. Se retornar 0, insiro novo usuário, senão, mensagem de erro
+*/
+SELECT COUNT(UserName) AS Usuários_Com_Mesmo_Nick FROM Users
+Where UserName = 'Felipe';

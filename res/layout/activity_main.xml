@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:visibility="visible">
+    <TableRow
+        android:gravity="center"
+        android:paddingTop="10dp">
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_span="2"
+            android:text="LOGIN"
+
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </TableRow>
+    <TableRow android:layout_marginTop="20dip">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="Usuario :"
+
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/txtNome"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:hint="Apelido ou email"
+            android:inputType="text|textEmailAddress" />
+    </TableRow>
+    <TableRow android:layout_marginTop="20dip">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Senha :"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/txtSenha"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dip"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:clickable="true"
+            android:text="Login"
+            android:onClick="logar" />
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dip"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:clickable="true"
+            android:text="Cadastrar"
+            android:onClick="cadastrar"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dip"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnResetarSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:clickable="true"
+            android:text="Esqueceu a senha?"
+            android:onClick="resetarSenha"/>
+    </TableRow>
+
+</TableLayout>

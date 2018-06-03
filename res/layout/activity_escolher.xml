@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/tbUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Usuarios"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btnAlterarDados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Alterar Dados"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btnAlterarSenha_UsuarioLogado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Alterar Senha"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btnEditarLivro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Editar Livro"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/btnDeletarUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Deletar conta"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btnDeletarLivro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Deletar livro"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/tbBooks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Livros"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btnCadastrarLivro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Cadastrar Livro"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btnInnerJoin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="escolherOpcao"
+        android:text="Buscar livros"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

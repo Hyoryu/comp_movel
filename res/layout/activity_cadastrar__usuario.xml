@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent" android:layout_width="fill_parent"
+    android:background="#ffffff">
+    <TableRow>
+        <TextView android:id="@+id/text1"
+            android:text="Nome:"
+            android:textColor="#000000"
+            android:layout_marginLeft="5dp"/>
+
+        <EditText
+            android:id="@+id/txtUserName"
+            android:width="300dp"
+            android:inputType="text" />
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/text2"
+            android:text="Apelido:"
+            android:textColor="#000000"
+            android:layout_marginLeft="5dp"/>
+        <EditText android:id="@+id/txtUserNickName"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/text3"
+            android:text="Email:"
+            android:textColor="#000000"
+            android:layout_marginLeft="5dp"/>
+
+        <EditText
+            android:id="@+id/txtUserEmail"
+            android:inputType="textEmailAddress" />
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/text4"
+            android:text="Senha:"
+            android:textColor="#000000"
+            android:layout_marginLeft="5dp"/>
+
+        <EditText
+            android:id="@+id/txtUserPassword"
+            android:inputType="textPassword" />
+    </TableRow>
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp">
+
+        <ImageButton android:src="@drawable/cancelar"
+            android:id="@+id/btnCancelarCadastroUsuario"
+            android:text="Cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp" />
+
+        <ImageButton android:src="@drawable/salvar"
+            android:id="@+id/btnSalvar"
+            android:text=" Salvar "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</TableLayout>

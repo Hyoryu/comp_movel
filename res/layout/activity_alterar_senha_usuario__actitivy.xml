@@ -1,0 +1,79 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:visibility="visible">
+    <TableRow
+        android:gravity="center"
+        android:paddingTop="10dp">
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_span="2"
+            android:text="ALTERAR SENHA DO CABAÇO"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </TableRow>
+    <TableRow android:layout_marginTop="20dip">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="Senha atual :"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/txtAlterar_Senha"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:inputType="textPassword" />
+    </TableRow>
+    <TableRow android:layout_marginTop="20dip">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Nova Senha :"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/txtAlterar_NovaSenha"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+    </TableRow>
+    <TableRow android:layout_marginTop="20dip">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Confirmar Senha:"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/txtAlterar_ConfirmarSenha"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dip"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnAlterarSenha_NovaSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:clickable="true"
+            android:text="Resetar Senha"
+            android:onClick="confirmarAlteracaoSenha" />
+    </TableRow>
+</TableLayout>
